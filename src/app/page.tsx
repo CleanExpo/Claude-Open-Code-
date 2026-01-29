@@ -40,6 +40,7 @@ export default function Home() {
   const [screenshotPath, setScreenshotPath] = useState<string>("");
   const [, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState("mission");
+  const [brandDNA, setBrandDNA] = useState<any>(null);
 
   const handleStartAnalysis = async () => {
     if (!url) return;
@@ -56,6 +57,7 @@ export default function Home() {
       setPersonas(data.personas);
       setBrandVoice(data.brandVoice);
       setScreenshotPath(data.screenshotPath || "");
+      setBrandDNA(data.brandDNA);
       setStep(2);
     } catch (err: any) {
       setError(err.message);
@@ -115,6 +117,7 @@ export default function Home() {
       setPersonas(data.personas);
       setBrandVoice(data.brandVoice);
       setScreenshotPath(data.screenshotPath || "");
+      setBrandDNA(data.brandDNA);
       const persona = data.personas[0];
       setSelectedPersona(persona);
       setStep(3);
@@ -251,35 +254,83 @@ export default function Home() {
                   <header className="flex justify-between items-end">
                     <div className="space-y-2">
                       <span className="text-[#0088FF] font-bold text-xs tracking-widest uppercase">Phase 01: Strategy</span>
-                      <h2 className="text-4xl font-bold">Persona Selection</h2>
+                      <h2 className="text-4xl font-bold">Market Intelligence</h2>
                     </div>
                     <button onClick={() => setStep(1)} className="text-gray-500 hover:text-white text-sm font-medium flex items-center gap-2">
                       Reset Mission <ChevronRight className="w-4 h-4" />
                     </button>
                   </header>
 
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {personas.map((p, i) => (
-                      <GlassCard
-                        key={i}
-                        className="p-8 group hover:border-[#0088FF]/30"
-                        onClick={() => handleSelectPersona(p)}
-                      >
-                        <div className="w-12 h-12 rounded-xl bg-[#0088FF]/10 border border-[#0088FF]/20 flex items-center justify-center mb-6">
-                          <Sparkles className="w-6 h-6 text-[#0088FF]" />
-                        </div>
-                        <h3 className="text-xl font-bold mb-3">{p.name}</h3>
-                        <p className="text-gray-500 text-sm leading-relaxed mb-8">{p.description}</p>
-                        <div className="space-y-3">
-                          {p.valueProps.map((v: string, j: number) => (
-                            <div key={j} className="flex items-center gap-3 text-[11px] text-gray-400 uppercase tracking-widest font-bold">
-                              <div className="w-1 h-1 rounded-full bg-[#0088FF]" />
-                              {v}
-                            </div>
-                          ))}
+                  {brandDNA && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="grid grid-cols-1 md:grid-cols-4 gap-6"
+                    >
+                      <GlassCard hoverable={false} className="md:col-span-1 p-6 border-[#00f2fe]/20">
+                        <div className="flex flex-col h-full justify-between">
+                          <div className="space-y-2">
+                            <span className="text-[10px] font-bold text-[#00f2fe] uppercase tracking-widest">Brand DNA</span>
+                            <h3 className="text-2xl font-bold">{brandDNA.name}</h3>
+                            <p className="text-xs text-gray-400 italic">"{brandDNA.tagline}"</p>
+                          </div>
+                          <div className="flex gap-2 mt-4">
+                            {brandDNA.colors?.map((c: string, idx: number) => (
+                              <div key={idx} className="w-4 h-4 rounded-full border border-white/10" style={{ backgroundColor: c }} title={c} />
+                            ))}
+                          </div>
                         </div>
                       </GlassCard>
-                    ))}
+                      <GlassCard hoverable={false} className="md:col-span-3 p-6 bg-gradient-to-br from-white/[0.02] to-transparent">
+                        <div className="grid md:grid-cols-2 gap-8">
+                          <div className="space-y-3">
+                            <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Voice & Tone</h4>
+                            <p className="text-[13px] leading-relaxed text-gray-300">{brandDNA.voice}</p>
+                          </div>
+                          <div className="space-y-4">
+                            <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Core Traits</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {brandDNA.traits?.map((t: string, idx: number) => (
+                                <span key={idx} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-gray-400">
+                                  {t}
+                                </span>
+                              ))}
+                            </div>
+                            <div className="pt-4 space-y-2">
+                              <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Primary Audience</h4>
+                              <p className="text-[13px] text-gray-400">{brandDNA.targetAudienceSummary}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </GlassCard>
+                    </motion.div>
+                  )}
+
+                  <div className="pt-8 space-y-6">
+                    <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest">Strategic Persona Selection</h3>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      {personas.map((p, i) => (
+                        <GlassCard
+                          key={i}
+                          className="p-8 group hover:border-[#0088FF]/30"
+                          onClick={() => handleSelectPersona(p)}
+                        >
+                          <div className="w-12 h-12 rounded-xl bg-[#0088FF]/10 border border-[#0088FF]/20 flex items-center justify-center mb-6">
+                            <Sparkles className="w-6 h-6 text-[#0088FF]" />
+                          </div>
+                          <h3 className="text-xl font-bold mb-3">{p.name}</h3>
+                          <p className="text-gray-500 text-sm leading-relaxed mb-8">{p.description}</p>
+                          <div className="space-y-3">
+                            {p.valueProps.map((v: string, j: number) => (
+                              <div key={j} className="flex items-center gap-3 text-[11px] text-gray-400 uppercase tracking-widest font-bold">
+                                <div className="w-1 h-1 rounded-full bg-[#0088FF]" />
+                                {v}
+                              </div>
+                            ))}
+                          </div>
+                        </GlassCard>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               )}

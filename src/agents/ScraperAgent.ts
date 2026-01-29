@@ -5,6 +5,21 @@ export class ScraperAgent {
      * Scrapes a URL for text content and takes a screenshot.
      */
     async scrape(url: string, screenshotDir: string = "public/screenshots"): Promise<{ text: string; screenshotPath: string }> {
+        const result = await this.scrapeWithPuppeteer(url, screenshotDir);
+        return result;
+    }
+
+    /**
+     * Reads a URL using Jina Reader (preferred for cleaner text).
+     */
+    async jinaRead(url: string): Promise<string> {
+        console.log(`[Scraper] Jina Reading: ${url}`);
+        const response = await fetch(`https://r.jina.ai/${url}`);
+        if (!response.ok) throw new Error("Jina Reader failed");
+        return await response.text();
+    }
+
+    private async scrapeWithPuppeteer(url: string, screenshotDir: string): Promise<{ text: string; screenshotPath: string }> {
         // Validate URL before navigation
         try {
             new URL(url);
@@ -42,8 +57,6 @@ export class ScraperAgent {
             const filename = `landing-${Date.now()}.png`;
             const path = `${screenshotDir}/${filename}`;
 
-            // Ensure directory exists (handled by write_to_file usually, but puppeteer needs it)
-            // For now, assume it exists or use public/screenshots
             await page.screenshot({ path });
 
             await browser.close();
