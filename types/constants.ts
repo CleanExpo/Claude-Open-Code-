@@ -54,3 +54,79 @@ export const DURATION_IN_FRAMES = 300; // Default, will be overridden by storybo
 export const VIDEO_WIDTH = 1280;
 export const VIDEO_HEIGHT = 720;
 export const VIDEO_FPS = 30;
+
+// Disaster Recovery Platform - 20 sec video (600 frames at 30fps)
+// Note: assetUrl removed - uses built-in gradient backgrounds for network-independent rendering
+export const disasterRecoveryProps: z.infer<typeof CompositionProps> = {
+  title: "Disaster Recovery Platform // AI-Powered Claims",
+  scenes: [
+    {
+      type: "Intro",
+      script: "DISASTER STRIKES // WHAT HAPPENS NEXT?",
+      durationFrames: 90
+    },
+    {
+      type: "Problem",
+      script: "CLAIMS PROCESSING TAKES WEEKS // NOT ANYMORE",
+      durationFrames: 100
+    },
+    {
+      type: "Solution",
+      script: "AI-POWERED CLAIM PROCESSING // INSTANT ASSESSMENT",
+      durationFrames: 110
+    },
+    {
+      type: "Feature",
+      script: "SMART CONTRACTOR MATCHING // REAL-TIME TRACKING",
+      durationFrames: 100
+    },
+    {
+      type: "Tech",
+      script: "NEXT.JS // FASTAPI // SUPABASE",
+      durationFrames: 90
+    },
+    {
+      type: "Outro",
+      script: "BUILT FOR AUSTRALIA // HOMEOWNERS • CONTRACTORS • INSURERS",
+      durationFrames: 110
+    }
+  ]
+};
+
+// NRPG Platform Features - 19 sec video (570 frames at 30fps)
+// Note: assetUrl removed - uses built-in gradient backgrounds for network-independent rendering
+export const nrpgPlatformProps: z.infer<typeof CompositionProps> = {
+  title: "NRPG Platform // Enterprise Features",
+  scenes: [
+    {
+      type: "Intro",
+      script: "NRPG PLATFORM // ENTERPRISE GRADE FEATURES",
+      durationFrames: 85
+    },
+    {
+      type: "Feature",
+      script: "AWS S3 FILE STORAGE // SECURE & SCALABLE",
+      durationFrames: 100
+    },
+    {
+      type: "Realtime",
+      script: "REAL-TIME WEBSOCKET UPDATES // INSTANT SYNC",
+      durationFrames: 100
+    },
+    {
+      type: "Dashboard",
+      script: "CONTRACTOR DASHBOARD // TRACK EARNINGS & JOBS",
+      durationFrames: 95
+    },
+    {
+      type: "Notifications",
+      script: "EMAIL NOTIFICATIONS // STAY INFORMED 24/7",
+      durationFrames: 95
+    },
+    {
+      type: "Outro",
+      script: "NRPG // POWERING THE FUTURE OF RECOVERY",
+      durationFrames: 95
+    }
+  ]
+};

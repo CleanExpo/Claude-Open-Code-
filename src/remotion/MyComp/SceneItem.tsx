@@ -8,11 +8,10 @@ import {
     Img,
     spring
 } from "remotion";
-import { loadFont } from "@remotion/google-fonts/Inter";
-import { loadFont as loadOutfit, fontFamily as outfitFamily } from "@remotion/google-fonts/Outfit";
 
-loadFont("normal", { subsets: ["latin"], weights: ["700"] });
-loadOutfit("normal", { subsets: ["latin"], weights: ["800"] });
+// Use system fonts as fallback (network-independent)
+const systemFontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+const outfitFamily = systemFontFamily;
 
 interface SceneItemProps {
     script: string;
@@ -139,9 +138,12 @@ export const SceneItem: React.FC<SceneItemProps> = ({ script, assetUrl, type }) 
                 <span className="text-white/10 font-mono text-[8px] tracking-[0.2em] uppercase">Produced in VIC, Australia // Engine Core v16.2</span>
             </div>
 
-            {/* 7. Film Grain & Overlay Texture */}
+            {/* 7. Film Grain & Overlay Texture - using CSS pattern instead of external URL */}
             <AbsoluteFill className="pointer-events-none opacity-[0.03]" style={{ mixBlendMode: 'overlay' }}>
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
+                <div className="absolute inset-0" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                    backgroundRepeat: 'repeat'
+                }} />
             </AbsoluteFill>
         </AbsoluteFill>
     );

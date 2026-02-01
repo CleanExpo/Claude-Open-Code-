@@ -3,6 +3,8 @@ import { Main } from "./MyComp/Main";
 import {
   COMP_NAME,
   defaultMyCompProps,
+  disasterRecoveryProps,
+  nrpgPlatformProps,
   DURATION_IN_FRAMES,
   VIDEO_FPS,
   VIDEO_HEIGHT,
@@ -32,6 +34,24 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           outProgress: 0,
         }}
+      />
+      <Composition
+        id="DisasterRecovery"
+        component={Main}
+        durationInFrames={600}
+        fps={VIDEO_FPS}
+        width={VIDEO_WIDTH}
+        height={VIDEO_HEIGHT}
+        defaultProps={disasterRecoveryProps}
+      />
+      <Composition
+        id="NRPGPlatform"
+        component={Main}
+        durationInFrames={570}
+        fps={VIDEO_FPS}
+        width={VIDEO_WIDTH}
+        height={VIDEO_HEIGHT}
+        defaultProps={nrpgPlatformProps}
       />
     </>
   );
