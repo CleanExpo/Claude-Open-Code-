@@ -1,0 +1,16 @@
+{
+  "name": "Disaster Recovery",
+  "tagline": "Business Continuity Guaranteed",
+  "problem": "DOWNTIME COSTS YOU THOUSANDS",
+  "problemDetail": "Every minute offline is money lost",
+  "solution": "INSTANT FAILOVER & RECOVERY",
+  "solutionDetail": "Back online in seconds, not hours",
+  "features": [
+    "AUTOMATED BACKUP SYSTEMS",
+    "Real-Time Replication",
+    "One-Click Restore"
+  ],
+  "cta": "PROTECT YOUR BUSINESS NOW",
+  "website": "disasterrecovery.io",
+  "palette": "health"
+}
