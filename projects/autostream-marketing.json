@@ -1,0 +1,16 @@
+{
+  "name": "AutoStream Marketing",
+  "tagline": "Autonomous Video Generation Platform",
+  "problem": "MANUAL CONTENT CREATION IS SLOW",
+  "problemDetail": "Hours spent on each video",
+  "solution": "AI AGENTS CREATE VIDEOS FOR YOU",
+  "solutionDetail": "From URL to MP4 in minutes",
+  "features": [
+    "8K CINEMATIC ASSETS",
+    "AI-Powered Storyboards",
+    "Multi-Platform Export"
+  ],
+  "cta": "AUTOMATE YOUR CONTENT NOW",
+  "website": "autostream.dev",
+  "palette": "tech"
+}

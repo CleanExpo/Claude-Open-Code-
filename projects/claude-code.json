@@ -1,0 +1,16 @@
+{
+  "name": "Claude Code",
+  "tagline": "Anthropic's Official CLI for Claude",
+  "problem": "SWITCHING BETWEEN CHAT AND CODE",
+  "problemDetail": "Context lost, workflow broken",
+  "solution": "AI IN YOUR TERMINAL",
+  "solutionDetail": "Code where you already work",
+  "features": [
+    "AGENTIC TASK EXECUTION",
+    "Multi-File Editing",
+    "Git Integration"
+  ],
+  "cta": "INSTALL CLAUDE CODE TODAY",
+  "website": "github.com/anthropics/claude-code",
+  "palette": "dark"
+}

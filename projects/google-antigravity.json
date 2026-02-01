@@ -1,0 +1,16 @@
+{
+  "name": "Google Antigravity",
+  "tagline": "Agent-First Development Platform",
+  "problem": "CODING ASSISTANTS JUST AUTOCOMPLETE",
+  "problemDetail": "Limited to suggestions, not actions",
+  "solution": "AUTONOMOUS AGENTS THAT CODE FOR YOU",
+  "solutionDetail": "Plan, code, test, and browse autonomously",
+  "features": [
+    "PARALLEL AGENT DEPLOYMENT",
+    "Browser Integration",
+    "Artifact-Based Trust"
+  ],
+  "cta": "EXPERIENCE THE FUTURE OF DEV",
+  "website": "codelabs.developers.google.com",
+  "palette": "saas"
+}
