@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoStream Video Gallery</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #0066FF, #CC00FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle { color: #666; margin-bottom: 40px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,102,255,0.2);
+        }
+        video {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+        .card-info {
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .card-meta {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(0,102,255,0.2);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #0066FF;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 AutoStream Video Gallery</h1>
+        <p class="subtitle">Generated intro videos for your projects</p>
+
+        <div class="grid">
+            <div class="card">
+                <video controls preload="metadata">
+                    <source src="/renders/autostream-marketing.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <div class="card-title">AutoStream Marketing</div>
+                    <div class="card-meta">Autonomous Video Generation Platform</div>
+                    <span class="badge">tech palette</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <video controls preload="metadata">
+                    <source src="/renders/google-antigravity.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <div class="card-title">Google Antigravity</div>
+                    <div class="card-meta">Agent-First Development Platform</div>
+                    <span class="badge">saas palette</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <video controls preload="metadata">
+                    <source src="/renders/claude-code.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <div class="card-title">Claude Code</div>
+                    <div class="card-meta">Anthropic's Official CLI for Claude</div>
+                    <span class="badge">dark palette</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <video controls preload="metadata">
+                    <source src="/renders/first-video.mp4" type="video/mp4">
+                </video>
+                <div class="card-info">
+                    <div class="card-title">First Video</div>
+                    <div class="card-meta">Original test video</div>
+                    <span class="badge">default palette</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
